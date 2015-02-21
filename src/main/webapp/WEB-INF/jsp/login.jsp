@@ -18,15 +18,15 @@
 <div width="100%" height="100%" align="center">
 	<table>
 		<tr>
-			<td>User Name</td>
+			<td><bean:message key="loginpage.label.username"/></td>
 			<td><html:text property="userName"/></td>
 		</tr>
 		<tr>
-			<td>Password</td>
+			<td><bean:message key="loginpage.label.password"/></td>
 			<td><html:password property="password"/></td>
 		</tr>
 		<tr>
-			<td colspan="2"><html:submit>Login</html:submit></td>
+			<td colspan="2"><html:submit><bean:message key="loginpage.label.loginbutton"/></html:submit></td>
 		</tr>
 		
 	</table>

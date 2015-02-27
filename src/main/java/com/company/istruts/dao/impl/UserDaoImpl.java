@@ -64,7 +64,7 @@ public class UserDaoImpl implements UserDao{
 		criteria.add(Restrictions.eq("password", pWord));
 		
 		criteria.setProjection(Projections.rowCount());
-		Integer count = (Integer)criteria.uniqueResult();
+		Long count = (Long)criteria.uniqueResult();
 		
 		if(count == 1){
 			return "SUCCESS";

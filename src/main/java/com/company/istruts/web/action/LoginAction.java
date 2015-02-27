@@ -8,6 +8,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.company.istruts.service.UserService;
+import com.company.istruts.service.impl.UserServiceImpl;
 import com.company.istruts.web.forms.UserForm;
 
 public class LoginAction extends Action{//1
@@ -24,7 +26,10 @@ public class LoginAction extends Action{//1
 		if(userForm.getUserName()==null && userForm.getPassword() == null){
 			return mapping.findForward("loginPage");
 		}
-		if(userForm.getUserName().equals("admin") && userForm.getPassword().equals("system")){
+		
+		UserService service = new UserServiceImpl();
+		String msg = service.auth(userForm.getUserName(), userForm.getPassword());
+		if(msg.equals("SUCCESS")){
 			return mapping.findForward("successScreen");
 		}
 		

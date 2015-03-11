@@ -8,10 +8,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public String auth(String userName, String password) {
-		
 		UserDao dao = new UserDaoImpl();
 		String message = dao.authentication(userName, password);
 		return message;
 	}
-
 }

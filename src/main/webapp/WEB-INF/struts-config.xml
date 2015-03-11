@@ -7,6 +7,8 @@
 
 	<form-beans>
 		<form-bean name="userForm" type="com.company.istruts.web.forms.UserForm"/>
+		
+		<form-bean name="orderForm" type="com.company.istruts.web.forms.OrderForm"/>
 	</form-beans>
 
 	<action-mappings>
@@ -15,6 +17,12 @@
 			validate="true" input="/WEB-INF/jsp/login.jsp">
 			<forward name="loginPage" path="/WEB-INF/jsp/login.jsp"/>
 			<forward name="successScreen" path="/WEB-INF/jsp/success.jsp"/>
+		</action>
+		
+		<action path="/order" type="com.company.istruts.web.action.OrderAction" name="orderForm"
+			parameter="subhash">
+			<forward name="orderListingPage" path="/WEB-INF/jsp/order/orderDashboard.jsp"/>
+			<forward name="orderDetailPage" path="/WEB-INF/jsp/order/orderDetails.jsp"/>
 		</action>
 	</action-mappings>
 	

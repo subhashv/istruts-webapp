@@ -1,1 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.company.istruts.domain.Order" table="orders">
+		<id name="orderNo" column="ORDER_NUMBER"><!-- THIS IS PRIMARY KEY IN THE DATABASE AND AUTO INCREMENT VALIE -->
+			<generator class="native"/>
+		</id>
+		
+		<property name="customerName" column="CUSTOMER_NAME"/>
+		
+		<property name="orderDate" column="ORDER_DATE" type="java.util.Date"/>
+		
+		<property name="orderStatus" column="ORDER_STATUS"/>
+		
+		<property name="totalAmount" column="TOTAL_AMOUNT" type="float"/>
+		
+	</class>
+</hibernate-mapping>

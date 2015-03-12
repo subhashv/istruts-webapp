@@ -1,6 +1,6 @@
 package com.company.istruts.web.action;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +10,11 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.LookupDispatchAction;
+
+import com.company.istruts.domain.Order;
+import com.company.istruts.service.OrderService;
+import com.company.istruts.service.impl.OrderServiceImpl;
+import com.company.istruts.web.forms.OrderForm;
 
 public class OrderAction extends LookupDispatchAction{
 
@@ -27,8 +32,17 @@ public class OrderAction extends LookupDispatchAction{
 	protected ActionForward unspecified(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {//Search Functionality...
-
+		
 		System.out.println("---------------------------------------------------------------------");
+		
+		OrderForm orderForm = (OrderForm)form;
+		
+		
+		OrderService service = new OrderServiceImpl();
+		List<Order> orderList = service.findOrdersByCriteria(null);
+		System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::"+orderList.size());
+		orderForm.setOrders(orderList);
+		
 		return mapping.findForward("orderListingPage");
 	}
 	

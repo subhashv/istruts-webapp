@@ -8,6 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Order Management</title>
+<script type="text/javascript">
+function viewOrder(orderId){
+	document.getElementsByName('orderId')[0].value = orderId
+	document.forms[0].action = document.forms[0].action+'?subhash=view'
+	document.forms[0].submit();
+}
+</script>
 </head>
 <body>
 <html:form action="/order">
@@ -26,10 +33,10 @@
 				<tr>
 				<tr>
 					<td>Order Id</td>
-					<td><input type="text" name="orderId"/></td>
+					<td><html:text property="orderId"/></td>
 					<td>Order Date</td>
-					<td><input type="text" name="orderStateDate"/></td>
-					<td><input type="text" name="orderEndDate"/></td>
+					<td><html:text property="orderStateDate"/></td>
+					<td><html:text property="orderEndDate"/></td>
 				<tr>
 				<tr>
 					<td>Order Status</td>
@@ -61,7 +68,7 @@
 				</thead>
 				<tbody align="center">
 					<logic:iterate id="order" name="orderForm" property="orders" indexId="index">
-						<tr
+						<tr ondblclick="viewOrder('<bean:write name="order" property="orderNo"/>');"
 							<logic:equal name="order" property="orderStatus" value="DELIVERED">style="background-color: green;"</logic:equal>
 							<logic:equal name="order" property="orderStatus" value="SHIPPING">style="background-color: yellow;"</logic:equal>
 							<logic:equal name="order" property="orderStatus" value="PROCESSING">style="background-color: blue;"</logic:equal>

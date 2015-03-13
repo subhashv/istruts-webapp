@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.company.istruts.domain.OrderLine" table="order_lines">
+		<id name="orderLineId" column="ORDER_LINE_NUM"><!-- THIS IS PRIMARY KEY IN THE DATABASE AND AUTO INCREMENT VALIE -->
+			<generator class="native"/>
+		</id>
+		
+		<property name="productName" column="PRODUCT_NAME"/>
+		
+		<property name="price" column="PRICE"  type="float"/>
+		
+		<property name="shippingAddress" column="SHIPPING_ADDRESS"/>
+		
+		<property name="billingAddress" column="BILLING_ADDRESS"/>
+		
+	</class>
+</hibernate-mapping>

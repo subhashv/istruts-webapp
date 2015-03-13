@@ -1,5 +1,6 @@
 package com.company.istruts.web.action;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,12 +21,12 @@ public class OrderAction extends LookupDispatchAction{
 
 	@Override
 	protected Map getKeyMethodMap() {
-//		Map<String, String> map = new HashMap<String, String>();
-//        map.put("UserForm.add", "viewOrder");
+		Map<String, String> map = new HashMap<String, String>();
+        map.put("UserForm.add", "viewOrder");
 //        map.put("UserForm.update", "createOrder");
 //        map.put("UserForm.delete", "updateOrder");
 //        map.put("UserForm.delete", "deleteOrder");
-        return null;
+        return map;
 	}
 	
 	@Override
@@ -46,8 +47,10 @@ public class OrderAction extends LookupDispatchAction{
 		return mapping.findForward("orderListingPage");
 	}
 	
-	public void viewOrder(){
-		
+	public ActionForward viewOrder(ActionMapping mapping, ActionForm form, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("------------------Add---------------------");
+		return mapping.findForward("orderDetailPage");
 	}
 	
 	public void createOrder(){

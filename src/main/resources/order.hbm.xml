@@ -16,5 +16,12 @@
 		
 		<property name="totalAmount" column="TOTAL_AMOUNT" type="float"/>
 		
+		<set name="orderLines" table="order_lines" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="ORDER_NUMBER" not-null="true" />
+			</key>
+			<one-to-many class="com.company.istruts.domain.OrderLine" />
+		</set>
+        
 	</class>
 </hibernate-mapping>

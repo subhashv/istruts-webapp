@@ -1,6 +1,7 @@
 package com.company.istruts.domain;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Order {
 
@@ -13,6 +14,8 @@ public class Order {
 	private float totalAmount;
 	
 	private String orderStatus;
+	
+	private Set<OrderLine> orderLines;
 
 	public Long getOrderNo() {
 		return orderNo;
@@ -52,5 +55,13 @@ public class Order {
 
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+
+	public Set<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(Set<OrderLine> orderLines) {
+		this.orderLines = orderLines;
 	}
 }
